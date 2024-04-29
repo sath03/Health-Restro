@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login In</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table>
+        <th>
+            <form action="/signIn.html" onsubmit="return validateForm()">
+                <label for="Username"></label>
+                <input type="text" id="Username" name="Username" placeholder="User Name" required>
+                </br></br>
+                <label for="Email"></label>
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
+                </br></br>
+                <label for="Op1">Female</label>
+                <input type="radio" id="female" name="Gender" Value="female"  required>
+
+                <label for="Op2">Male</label>
+                <input type="radio" id="male" name="Gender" Value="male" required>
+
+                <label for="Op3">Others</label>
+                <input type="radio" id="others" name="Gender" Value="Others" required>
+                </br></br>
+                <label for="dob">DOB</label>    
+                <input type="date" id="dob" name="dob" placeholder="Date Of Birth" required>
+                </br></br>  
+                <label for="P.No"></label>
+                <input type="tel" id="Phone" name="phone" placeholder="Mobile Number" required>
+                </br></br>
+                <label for="pswd"></label>
+                <input type="password" id="pswd" name="pswd" placeholder="Password" required>
+                </br></br>
+                <label for="ConPswd"></label>
+                <input type="password" id="ConPswd" name="ConPswd" placeholder="Confirm Password" required>
+                </br></br>
+                <input type="submit" name="Submit" required>
+                <input type="reset" name="Reset" required>
+            </form>
+        </th>
+        <th action="Login.html" class="rounded-rectangle" >
+            <h1>Welcome My Dear Friend!!</h1>
+            <a href="signIn.html"><button>Sign-In</button></a>
+        </th>
+    </table>
+    
+    <script>
+        function validateForm(){
+            var password = document.getElementById("pswd").value;
+            var confirm_password = document.getElementById("ConPswd").value;
+            var reg=/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            var message="The password must contain atleast one digit. \n";
+            message+="The password must contain atleast one special character. \n";
+            message+="The password must contain atleast one lowercase. \n";
+            message+="The password must contain atleast one Uppercase. \n";
+            message+="The password must contain atleast 8 characters. \n";
+            if(!reg.test(password)){
+                alert(message)
+            }
+            if(password!=confirm_password){
+                alert("make sure the password is matched");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
